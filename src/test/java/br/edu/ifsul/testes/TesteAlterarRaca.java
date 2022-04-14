@@ -8,9 +8,6 @@ import javax.persistence.Persistence;
 
 public class TesteAlterarRaca {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PW2022-1-ModelPU");
         EntityManager em = emf.createEntityManager();

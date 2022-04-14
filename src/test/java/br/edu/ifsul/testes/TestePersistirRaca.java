@@ -14,7 +14,7 @@ public class TestePersistirRaca {
         
         Raca r = new Raca();
         //r.setId(1);
-        r.setNome("Pinscher2");
+        r.setNome("Pinscher");
 
         em.getTransaction().begin();
         em.persist(r);

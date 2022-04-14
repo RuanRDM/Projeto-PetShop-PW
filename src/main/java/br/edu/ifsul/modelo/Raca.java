@@ -12,10 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 
-/**
- *
- * @author 20191pf.cc0202
- */
+
 @Entity
 @Table(name="raca")
 public class Raca implements Serializable{

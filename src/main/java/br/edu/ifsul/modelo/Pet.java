@@ -14,6 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
@@ -38,8 +39,9 @@ public class Pet implements Serializable {
     @Column(name = "nascimento", nullable = false)
     private Calendar nascimento;
     
+    @Min(value=0, message = "O peso não pode ser negativo")
     @NotNull(message = "O peso deve ser informado")
-    @Column(name = "peso", nullable = false)
+    @Column(name = "peso", nullable = false, columnDefinition = "decimal(6,3)")
     private Double peso;
     
     @NotBlank(message = "A espécie não pode ficar em branco")
