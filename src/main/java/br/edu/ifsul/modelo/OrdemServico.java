@@ -22,7 +22,10 @@ import br.edu.ifsul.modelo.Pet;
 import br.edu.ifsul.modelo.Funcionario;
 import br.edu.ifsul.modelo.Pessoa;
 import br.edu.ifsul.modelo.ItemServico;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -65,15 +68,15 @@ public class OrdemServico implements Serializable{
     private Pessoa pessoa;
     
     @OneToMany(mappedBy = "ordemservico", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private ArrayList<ItemServico> itemservico = new ArrayList<>();
+    private ArrayList<ItemServico> itemservicos = new ArrayList<>();
     
     public void adicionarItemServico(ItemServico obj){
-        //obj.setItemservico(this);
-        this.getItemservico().add(obj);
+        obj.setOrdemservico(this);
+        this.getItemservicos().add(obj);
     }
     
     public void removerItemServico(int index){
-        this.getItemservico().remove(index);
+        this.getItemservicos().remove(index);
     }
     public OrdemServico(){
         
@@ -157,16 +160,13 @@ public class OrdemServico implements Serializable{
         this.pessoa = pessoa;
     }
 
-    public ArrayList<ItemServico> getItemservico() {
-        return itemservico;
+    public ArrayList<ItemServico> getItemservicos() {
+        return itemservicos;
     }
 
-    public void setItemservico(ArrayList<ItemServico> itemservico) {
-        this.itemservico = itemservico;
+    public void setItemservicos(ArrayList<ItemServico> itemservicos) {
+        this.itemservicos = itemservicos;
     }
-   
-
-
     
 
 }

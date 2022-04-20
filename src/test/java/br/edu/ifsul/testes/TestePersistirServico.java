@@ -15,7 +15,7 @@ public class TestePersistirServico {
         //s.setId(1);
         
         s.setNome("Serviço de limpeza");
-        
+        s.setValor(1000000.00);
         em.getTransaction().begin();
         em.persist(s);
         em.getTransaction().commit();

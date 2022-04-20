@@ -1,12 +1,14 @@
 package br.edu.ifsul.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
@@ -34,7 +36,17 @@ public class Produtos implements Serializable{
     @Column(name = "valor", nullable = false)
     private Double valor;
     
-
+    @ManyToMany
+    @JoinTable(name = "produtos",
+            joinColumns = 
+                    @JoinColumn(name = "produtos", referencedColumnName = "id", 
+                            nullable = false),
+            inverseJoinColumns = 
+                    @JoinColumn(name = "servico", referencedColumnName = "id", 
+                            nullable = false)
+            )
+    private ArrayList<Servico> servicos = new ArrayList<>();
+    
     public Produtos(){
     
     }
@@ -73,17 +85,26 @@ public class Produtos implements Serializable{
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
 
     public Double getValor() {
         return valor;
     }
 
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    public ArrayList<Servico> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(ArrayList<Servico> servicos) {
+        this.servicos = servicos;
     }
 
 

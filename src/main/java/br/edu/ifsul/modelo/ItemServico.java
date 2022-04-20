@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -106,6 +107,22 @@ public class ItemServico implements Serializable{
 
     public void setValorUnitario(Double valorUnitario) {
         this.valorUnitario = valorUnitario;
+    }
+
+    public Servico getServico() {
+        return servico;
+    }
+
+    public void setServico(Servico servico) {
+        this.servico = servico;
+    }
+
+    public OrdemServico getOrdemservico() {
+        return ordemservico;
+    }
+
+    public void setOrdemservico(OrdemServico ordemservico) {
+        this.ordemservico = ordemservico;
     }
     
     

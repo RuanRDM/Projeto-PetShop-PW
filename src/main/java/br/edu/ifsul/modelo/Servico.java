@@ -39,14 +39,14 @@ public class Servico implements Serializable{
     @Column(name = "valor", nullable = false)
     private Double valor;
     
-    /*@ManyToMany
+    @ManyToMany
     @JoinTable(name = "produtos", 
             joinColumns = 
-                @JoinColumn(name = "nome", referencedColumnName = "id", nullable = false),
+                @JoinColumn(name = "servico", referencedColumnName = "id", nullable = false),
             inverseJoinColumns =
                 @JoinColumn(name = "produtos", referencedColumnName = "nome", nullable = false)
             )
-    private ArrayList<Produtos> produto = new ArrayList<>();*/
+    private ArrayList<Produtos> produtos = new ArrayList<>();
             
     public Servico(){
     
@@ -88,6 +88,22 @@ public class Servico implements Serializable{
         }
         final Servico other = (Servico) obj;
         return Objects.equals(this.id, other.id);
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
+
+    public ArrayList<Produtos> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(ArrayList<Produtos> produtos) {
+        this.produtos = produtos;
     }
 
 

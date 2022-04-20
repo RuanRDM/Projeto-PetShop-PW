@@ -24,7 +24,7 @@ public class TestePersistirOrdemServico {
         
         os.setPessoa(em.find(Pessoa.class,1));
         os.setPet(em.find(Pet.class,1));
-        os.setFuncionario(em.find(Funcionario.class,1));
+        os.setFuncionario(em.find(Funcionario.class,"Ruan Delatorre"));
         
         em.getTransaction().begin();
         em.persist(os);
